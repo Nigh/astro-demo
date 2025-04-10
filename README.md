@@ -11,6 +11,9 @@ npm run astro add svelte
 npm run astro add tailwind
 ```
 
+- Replaced some assets
+- Edited `Welcome.astro` `Layout.astro`
+
 
 ## 🧞 Commands
 
