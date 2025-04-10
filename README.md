@@ -13,7 +13,7 @@ npm run astro add tailwind
 
 - Replaced some assets
 - Edited `Welcome.astro` `Layout.astro`
-
+- Changed `site` and `base` in `astro.config.mjs`
 
 ## 🧞 Commands
 
