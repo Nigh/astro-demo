@@ -16,6 +16,18 @@ npm run astro add tailwind
 - Added a workflow to automatic deploy
 - Changed `site` and `base` in `astro.config.mjs`
 
+```sh
+npm install dotenv -D
+```
+
+- Installed dotenv to use the environment variables in `astro.config.mjs`
+- Now, the `base` path could work in both `.astro` and `.mjs`
+
+```powershell
+# build in powershell
+$env:PUBLIC_BASE_URL='astro-demo/'; npm run build
+```
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
