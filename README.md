@@ -28,6 +28,18 @@ npm install dotenv -D
 $env:PUBLIC_BASE_URL='astro-demo/'; npm run build
 ```
 
+- Add prettier.
+
+```sh
+npm install -D prettier prettier-plugin-astro
+```
+
+- Create `.prettierrc`, `.prettierignore`
+- add `"format": "prettier --write ."` in `package.json`
+- `npm run format` works now.
+
+After that, added more content.
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
