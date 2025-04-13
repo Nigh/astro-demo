@@ -12,6 +12,6 @@ export default defineConfig({
   base: process.env.PUBLIC_BASE_URL || '',
   site: 'https://nigh.github.io',
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [tailwindcss()],
+  },
 });

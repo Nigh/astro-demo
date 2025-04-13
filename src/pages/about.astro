@@ -1,0 +1,27 @@
+---
+import Nav from '../components/Nav.astro';
+import Pages from '../layouts/Pages.astro';
+---
+
+<Pages>
+  <section id="hero">
+    <h1>about</h1>
+    <p>this is a test page</p>
+  </section>
+  <Nav />
+</Pages>
+
+<style>
+  #hero {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 22px;
+    margin-top: 0.25em;
+  }
+</style>
