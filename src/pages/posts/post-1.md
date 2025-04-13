@@ -1,5 +1,4 @@
-
-# Markdown Page
+# First Markdown Page
 
 This is a markdown page.
 
@@ -7,11 +6,15 @@ This is a markdown page.
 - hola
 - nihao
 
+## Codeblock
+
 ```sh
 npm create astro@latest
 npm run astro add svelte
 npm run astro add tailwind
 ```
+
+## Table
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |

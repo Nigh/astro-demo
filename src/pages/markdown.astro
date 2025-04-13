@@ -1,0 +1,36 @@
+---
+import Nav from '../components/Nav.astro';
+import Pages from '../layouts/Pages.astro';
+
+const posts = await Astro.glob('./posts/*.md');
+---
+
+<Pages>
+  <div id="content" class="flex flex-col align-center justify-center p-16">
+    <h1>Markdown pages</h1><ul>
+      {
+        posts.map((post) => (
+          <li>
+            <a href={post.url}>{post.getHeadings()[0].text}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <Nav />
+</Pages>
+
+<style>
+  #content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 22px;
+    margin-top: 0.25em;
+  }
+</style>
