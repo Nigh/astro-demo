@@ -2,10 +2,9 @@ name: Deploy Astro site to GitHub Pages
 
 on:
   push:
-    branches: [main]
-  pull_request:
-    types: [closed]
-    branches: [main]
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -29,9 +28,11 @@ jobs:
         run: npm ci
 
       - name: Build Astro site
-        run: npm run build
-        env:
-          PUBLIC_BASE_URL: '/astro-demo'
+        run: |
+          PUBLIC_BASE_URL='astro-demo/' npm run build
+
+      - name: Print env
+        run: printenv | grep PUBLIC_BASE_URL
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
