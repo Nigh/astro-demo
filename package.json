@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@astrojs/svelte": "^7.0.9",
@@ -17,6 +18,8 @@
     "typescript": "^5.8.3"
   },
   "devDependencies": {
-    "dotenv": "^16.5.0"
+    "dotenv": "^16.5.0",
+    "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }
