@@ -1,7 +1,11 @@
+---
+const base = import.meta.env.PUBLIC_BASE_URL;
+---
+
 <div class="flex justify-center items-center">
-  <a href="/">Home</a>
-  <a href="/markdown/">Markdowns</a>
-  <a href="/about/">About</a>
+  <a href={base}>Home</a>
+  <a href={base + 'markdown/'}>Markdowns</a>
+  <a href={base + 'about/'}>About</a>
 </div>
 
 <style>
