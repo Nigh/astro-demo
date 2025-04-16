@@ -40,6 +40,12 @@ npm install -D prettier prettier-plugin-astro
 
 After that, added more content.
 
+```sh
+npm install --save-dev cross-env
+```
+
+- Use `cross-env` for cross platform environment variable setting in `package.json`
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:

@@ -1,3 +1,10 @@
+---
+title: 'First Markdown Post'
+date: '2025-04-15'
+tags: ['astro', 'markdown']
+description: 'This is the first post.'
+---
+
 # First Markdown Page
 
 This is a markdown page.
