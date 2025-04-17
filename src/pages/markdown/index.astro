@@ -12,7 +12,7 @@ const sortedPosts = posts.sort((a, b) => b.data.date.getTime() - a.data.date.get
       {
         sortedPosts.map((post) => (
           <li class="list-row mt-2 bg-base-300 rounded-box shadow-md">
-            <a href={`/markdown/${post.slug}/`}>
+            <a href={`markdown/${post.slug}/`}>
               <div class="list-col-grow">
                 <div class="font-bold text-lg">{post.data.title}</div>
                 <div class="text-xs uppercase font-semibold opacity-60">
