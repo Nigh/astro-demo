@@ -1,6 +1,6 @@
 ---
-title: 'Markdown Test'
-date: '2025-04-15'
+title: 'Markdown Showcase'
+date: 2025-04-15
 tags: ['astro', 'markdown']
 description: 'markdown render test.'
 ---
