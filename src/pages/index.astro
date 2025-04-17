@@ -1,5 +1,10 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Pages from '../layouts/Pages.astro';
+import Profile from '../content/posts/profile.md';
 ---
 
-<Welcome />
+<Pages>
+  <div class="markdown-body">
+    <Profile />
+  </div>
+</Pages>

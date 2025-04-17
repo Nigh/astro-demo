@@ -13,5 +13,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  posts: {},
+  markdown: {
+    syntaxHighlight: false, // <-- disables Shiki (which adds inline styles)
+  },
 });
