@@ -1,6 +1,6 @@
 ---
 title: 'Profile'
-date: '2019-04-17'
+date: 2019-04-17
 tags: ['astro', 'markdown']
 description: 'My profile'
 ---

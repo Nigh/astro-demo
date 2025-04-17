@@ -25,7 +25,7 @@ npm install dotenv -D
 
 ```powershell
 # build in powershell
-$env:PUBLIC_BASE_URL='astro-demo/'; npm run build
+$env:PUBLIC_BASE_URL='/astro-demo/'; npm run build
 ```
 
 - Add prettier.
