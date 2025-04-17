@@ -8,10 +8,12 @@ dotenv.config();
 // https://astro.build/config
 export default defineConfig({
   integrations: [svelte()],
-  base: process.env.PUBLIC_BASE_URL || '',
-  site: 'https://nigh.github.io',
+  base: process.env.PUBLIC_BASE_URL || '/',
+  site: 'https://nigh.github.io' + process.env.PUBLIC_BASE_URL,
   vite: {
     plugins: [tailwindcss()],
   },
-  posts: {},
+  markdown: {
+    syntaxHighlight: false, // <-- disables Shiki (which adds inline styles)
+  },
 });

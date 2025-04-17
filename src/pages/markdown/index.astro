@@ -1,25 +1,30 @@
 ---
 import { getCollection } from 'astro:content';
-import Nav from '../../components/Nav.astro';
 import Pages from '../../layouts/Pages.astro';
-
 const posts = await getCollection('posts');
+const sortedPosts = posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
 <Pages>
   <div id="content" class="flex flex-col align-center justify-center p-16">
-    <h1>Markdown pages</h1>
-    <ul>
+    <h1>Posts</h1>
+    <ul class="list w-full">
       {
-        posts.map((post) => (
-          <li>
-            <a href={`/markdown/${post.slug}/`}>{post.data.title}</a>
+        sortedPosts.map((post) => (
+          <li class="list-row mt-2 bg-base-300 rounded-box shadow-md">
+            <a href={`/markdown/${post.slug}/`}>
+              <div class="list-col-grow">
+                <div class="font-bold text-lg">{post.data.title}</div>
+                <div class="text-xs uppercase font-semibold opacity-60">
+                  {post.data.date.toISOString().split('T')[0]}
+                </div>
+              </div>
+            </a>
           </li>
         ))
       }
     </ul>
   </div>
-  <Nav />
 </Pages>
 
 <style>
