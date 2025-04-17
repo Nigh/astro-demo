@@ -179,4 +179,25 @@ import '../styles/global.css';
 
 ## Day5
 
-Added more content and more style. Things get done.
+Added more content and more style.
+
+## Day6
+
+Let's finish some of the work delayed.
+
+Add env variables `PUBLIC_SITE_URL` in the workflow.
+
+```yml
+env:
+  PUBLIC_BASE_URL: '/astro-demo/'
+  PUBLIC_SITE_URL: 'https://nigh.github.io'
+```
+
+The settings in the `astro.config.mjs` should looks like below.
+
+```js
+  base: process.env.PUBLIC_BASE_URL || '/',
+  site: process.env.PUBLIC_SITE_URL
+  ? process.env.PUBLIC_SITE_URL + (process.env.PUBLIC_BASE_URL || '')
+  : undefined,
+```
