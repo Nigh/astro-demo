@@ -9,7 +9,9 @@ dotenv.config();
 export default defineConfig({
   integrations: [svelte()],
   base: process.env.PUBLIC_BASE_URL || '/',
-  site: 'https://nigh.github.io' + process.env.PUBLIC_BASE_URL,
+  site: process.env.PUBLIC_SITE_URL
+    ? process.env.PUBLIC_SITE_URL + (process.env.PUBLIC_BASE_URL || '')
+    : undefined,
   vite: {
     plugins: [tailwindcss()],
   },

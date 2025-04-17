@@ -179,4 +179,81 @@ import '../styles/global.css';
 
 ## Day5
 
-Added more content and more style. Things get done.
+Added more content and more style.
+
+## Day6
+
+Let's finish some of the work delayed.
+
+Add env variables `PUBLIC_SITE_URL` in the workflow.
+
+```yml
+env:
+  PUBLIC_BASE_URL: '/astro-demo/'
+  PUBLIC_SITE_URL: 'https://nigh.github.io'
+```
+
+The settings in the `astro.config.mjs` should looks like below.
+
+```js
+  base: process.env.PUBLIC_BASE_URL || '/',
+  site: process.env.PUBLIC_SITE_URL
+  ? process.env.PUBLIC_SITE_URL + (process.env.PUBLIC_BASE_URL || '')
+  : undefined,
+```
+
+The next, add a fetch render to make it able to render the remote markdowns.
+
+First, install a markdown parser.
+```sh
+npm install marked
+```
+
+Next, change `src/index.astro` to below:
+```astro
+---
+import { marked } from 'marked';
+import Pages from '../layouts/Pages.astro';
+
+const response = await fetch('https://raw.githubusercontent.com/Nigh/nigh/refs/heads/master/README.md');
+const markdown = await response.text();
+const html = marked(markdown);
+---
+
+<Pages>
+	<div class="markdown-body">
+		<article set:html={html}></article>
+	</div>
+</Pages>
+```
+
+Now, it fetchs markdown from my GitHub profile, and rendered in the home page.
+
+Taking it a step further, I could make this a component. Let's create `src/components/RemoteMD.astro`
+```astro
+---
+import { marked } from 'marked';
+const { url } = Astro.props;
+const response = await fetch(url);
+const markdown = await response.text();
+const html = marked(markdown);
+---
+
+<div class="markdown-body">
+	<article set:html={html}></article>
+</div>
+```
+
+Using this component to render remote markdown would be very easy. The `index.astro` could become:
+```astro
+---
+import RemoteMD from '../components/RemoteMD.astro';
+import Pages from '../layouts/Pages.astro';
+---
+
+<Pages>
+	<RemoteMD url="https://raw.githubusercontent.com/Nigh/nigh/refs/heads/master/README.md" />
+</Pages>
+```
+
+Works done for this demo, I'll create a Astro template from this demo.
