@@ -205,31 +205,36 @@ The settings in the `astro.config.mjs` should looks like below.
 The next, add a fetch render to make it able to render the remote markdowns.
 
 First, install a markdown parser.
+
 ```sh
 npm install marked
 ```
 
 Next, change `src/index.astro` to below:
+
 ```astro
 ---
 import { marked } from 'marked';
 import Pages from '../layouts/Pages.astro';
 
-const response = await fetch('https://raw.githubusercontent.com/Nigh/nigh/refs/heads/master/README.md');
+const response = await fetch(
+  'https://raw.githubusercontent.com/Nigh/nigh/refs/heads/master/README.md'
+);
 const markdown = await response.text();
 const html = marked(markdown);
 ---
 
 <Pages>
-	<div class="markdown-body">
-		<article set:html={html}></article>
-	</div>
+  <div class="markdown-body">
+    <article set:html={html} />
+  </div>
 </Pages>
 ```
 
 Now, it fetchs markdown from my GitHub profile, and rendered in the home page.
 
 Taking it a step further, I could make this a component. Let's create `src/components/RemoteMD.astro`
+
 ```astro
 ---
 import { marked } from 'marked';
@@ -240,11 +245,12 @@ const html = marked(markdown);
 ---
 
 <div class="markdown-body">
-	<article set:html={html}></article>
+  <article set:html={html} />
 </div>
 ```
 
 Using this component to render remote markdown would be very easy. The `index.astro` could become:
+
 ```astro
 ---
 import RemoteMD from '../components/RemoteMD.astro';
@@ -252,7 +258,7 @@ import Pages from '../layouts/Pages.astro';
 ---
 
 <Pages>
-	<RemoteMD url="https://raw.githubusercontent.com/Nigh/nigh/refs/heads/master/README.md" />
+  <RemoteMD url="https://raw.githubusercontent.com/Nigh/nigh/refs/heads/master/README.md" />
 </Pages>
 ```
 
