@@ -21,6 +21,7 @@ import Sidebar from '../components/Sidebar.astro';
           <div class="p-6">
             <slot />
           </div>
+          <div class="h-20"></div>
         </main>
       </div>
 
@@ -29,7 +30,8 @@ import Sidebar from '../components/Sidebar.astro';
       </aside>
 
       <nav
-        class="md:hidden fixed bottom-0 left-0 right-0 bg-background border-t border-primary/20 flex justify-around py-3"
+        class="md:hidden fixed bottom-0 left-0 right-0 bg-black/70 backdrop-blur-xs border-t border-primary/40 flex justify-around"
+        style="padding-bottom: env(safe-area-inset-bottom);"
       >
         <NavMobile />
       </nav>
