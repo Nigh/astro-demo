@@ -11,16 +11,16 @@ const sortedPosts = posts.sort((a, b) => b.data.date.getTime() - a.data.date.get
     <ul class="list w-full">
       {
         sortedPosts.map((post) => (
-          <li class="list-row mt-2 bg-base-300 rounded-box shadow-md">
-            <a href={`${post.slug}/`}>
+          <a href={`${post.slug}/`}>
+            <li class="list-row mt-2 bg-base-300 rounded-box shadow-md hover:bg-primary/80">
               <div class="list-col-grow">
                 <div class="font-bold text-lg">{post.data.title}</div>
                 <div class="text-xs uppercase font-semibold opacity-60">
                   {post.data.date.toISOString().split('T')[0]}
                 </div>
               </div>
-            </a>
-          </li>
+            </li>
+          </a>
         ))
       }
     </ul>
